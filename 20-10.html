@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chúc Mừng 20/10 💖</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffe6f2, #ffd6e7);
+      color: #ff1493;
+      font-family: "Comic Sans MS", cursive;
+      text-align: center;
+      overflow: hidden;
+      height: 100vh;
+    }
+
+    h1 {
+      margin-top: 80px;
+      font-size: 45px;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff66b2, 0 0 20px #ff99cc; }
+      to { text-shadow: 0 0 25px #ff1a8c, 0 0 40px #ff66b2; }
+    }
+
+    #openLucky {
+      font-size: 25px;
+      padding: 10px 30px;
+      background: #ff80bf;
+      border: none;
+      border-radius: 15px;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(255, 0, 128, 0.3);
+      transition: 0.3s;
+      margin-top: 40px;
+    }
+
+    #openLucky:hover {
+      background: #ff4da6;
+      transform: scale(1.05);
+    }
+
+    #result {
+      font-size: 26px;
+      color: #e60073;
+      margin-top: 20px;
+    }
+
+    /* Hiệu ứng hoa rơi */
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>🌸 Chúc Mừng Ngày Phụ Nữ Việt Nam 20/10 🌸</h1>
+  <p style="font-size:22px;">Chúc bạn luôn xinh đẹp, hạnh phúc và ngập tràn yêu thương 💐</p>
+
+  <button id="openLucky">🎁 Mở Bao Lì Xì</button>
+  <p id="result"></p>
+
+  <!-- Nhạc nền -->
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/10/19/audio_7f66dbfd49.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+
+
+
+    // 🌸 Hiệu ứng hoa rơi
+    function createFlower() {
+      const flower = document.createElement('div');
+      flower.innerHTML = '🌸';
+      flower.style.position = 'absolute';
+      flower.style.left = Math.random() * 100 + 'vw';
+      flower.style.fontSize = Math.random() * 25 + 15 + 'px';
+      flower.style.animation = `fall ${Math.random() * 3 + 3}s linear forwards`;
+      flower.style.zIndex = 1;
+      document.body.appendChild(flower);
+      setTimeout(() => flower.remove(), 6000);
+    }
+    setInterval(createFlower, 300);
+
+    // 💌 Bao lì xì ngẫu nhiên
+    document.getElementById("openLucky").addEventListener("click", function(){
+      const gifts = [
+        "10.000đ 💖",
+        "20.000đ 🌸",
+        "50.000đ 🌷",
+        "100.000đ 💝",
+        "200.000đ 💐",
+        "Lời chúc ngọt ngào nhất từ người gửi 🎀"
+      ];
+      const lucky = gifts[Math.floor(Math.random() * gifts.length)];
+      document.getElementById("result").innerText = `🎉 Bạn nhận được ${lucky}!`;
+    });
+  </script>
+</body>
+</html>
